@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		69B3E8272875ACFF006B427D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B3E8262875ACFF006B427D /* AppDelegate.swift */; };
 		69B3E8292875ACFF006B427D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B3E8282875ACFF006B427D /* SceneDelegate.swift */; };
-		69B3E82B2875ACFF006B427D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B3E82A2875ACFF006B427D /* ViewController.swift */; };
+		69B3E82B2875ACFF006B427D /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B3E82A2875ACFF006B427D /* ConversationsViewController.swift */; };
 		69B3E82E2875ACFF006B427D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B3E82C2875ACFF006B427D /* Main.storyboard */; };
 		69B3E8302875AD01006B427D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69B3E82F2875AD01006B427D /* Assets.xcassets */; };
 		69B3E8332875AD01006B427D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B3E8312875AD01006B427D /* LaunchScreen.storyboard */; };
@@ -22,6 +22,7 @@
 		69B3E8652875B356006B427D /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B3E8642875B356006B427D /* VideoPlayerViewController.swift */; };
 		69B3E8672875B39D006B427D /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B3E8662875B39D006B427D /* NewConversationViewController.swift */; };
 		69B3E8692875B3BD006B427D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B3E8682875B3BD006B427D /* ProfileViewController.swift */; };
+		69B3E86C2875C49D006B427D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B3E86B2875C49D006B427D /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +46,7 @@
 		69B3E8232875ACFF006B427D /* OurMessage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OurMessage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B3E8262875ACFF006B427D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69B3E8282875ACFF006B427D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		69B3E82A2875ACFF006B427D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		69B3E82A2875ACFF006B427D /* ConversationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewController.swift; sourceTree = "<group>"; };
 		69B3E82D2875ACFF006B427D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		69B3E82F2875AD01006B427D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		69B3E8322875AD01006B427D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,6 +62,7 @@
 		69B3E8642875B356006B427D /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		69B3E8662875B39D006B427D /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		69B3E8682875B3BD006B427D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		69B3E86B2875C49D006B427D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,9 +143,8 @@
 		69B3E8562875B03A006B427D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				69B3E82A2875ACFF006B427D /* ViewController.swift */,
-				69B3E85E2875B2E1006B427D /* LoginViewController.swift */,
-				69B3E8602875B305006B427D /* RegisterViewController.swift */,
+				69B3E82A2875ACFF006B427D /* ConversationsViewController.swift */,
+				69B3E86A2875B4F7006B427D /* Login */,
 				69B3E8622875B33B006B427D /* PhotoViewerViewController.swift */,
 				69B3E8642875B356006B427D /* VideoPlayerViewController.swift */,
 				69B3E8662875B39D006B427D /* NewConversationViewController.swift */,
@@ -180,6 +181,7 @@
 			children = (
 				69B3E8262875ACFF006B427D /* AppDelegate.swift */,
 				69B3E8282875ACFF006B427D /* SceneDelegate.swift */,
+				69B3E86B2875C49D006B427D /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -191,6 +193,15 @@
 				69B3E8312875AD01006B427D /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		69B3E86A2875B4F7006B427D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				69B3E85E2875B2E1006B427D /* LoginViewController.swift */,
+				69B3E8602875B305006B427D /* RegisterViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,8 +338,9 @@
 				69B3E85F2875B2E1006B427D /* LoginViewController.swift in Sources */,
 				69B3E8612875B305006B427D /* RegisterViewController.swift in Sources */,
 				69B3E8672875B39D006B427D /* NewConversationViewController.swift in Sources */,
-				69B3E82B2875ACFF006B427D /* ViewController.swift in Sources */,
+				69B3E82B2875ACFF006B427D /* ConversationsViewController.swift in Sources */,
 				69B3E8652875B356006B427D /* VideoPlayerViewController.swift in Sources */,
+				69B3E86C2875C49D006B427D /* Extensions.swift in Sources */,
 				69B3E8272875ACFF006B427D /* AppDelegate.swift in Sources */,
 				69B3E8692875B3BD006B427D /* ProfileViewController.swift in Sources */,
 				69B3E8292875ACFF006B427D /* SceneDelegate.swift in Sources */,
