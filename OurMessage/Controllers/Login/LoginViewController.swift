@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
         Field.layer.cornerRadius = 12
         Field.layer.borderWidth = 1
         Field.layer.borderColor = UIColor.lightGray.cgColor
-        Field.placeholder = "Enter a password"
+        Field.placeholder = "password"
         Field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 0))
         Field.leftViewMode = .always
         Field.backgroundColor = .white
@@ -54,7 +54,7 @@ class LoginViewController: UIViewController {
     
     private let LoginButton : UIButton = {
         let button = UIButton()
-        button.setTitle("Log in", for: .normal)
+        button.setTitle("Login", for: .normal)
         button.backgroundColor = .lightGray
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 20
@@ -69,7 +69,7 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Log in"
+        title = "Login"
         view.backgroundColor = .white
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register",
@@ -110,6 +110,10 @@ class LoginViewController: UIViewController {
         
     }
     @objc private func loginButtonTapped(){
+        emailField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+        
+        
         guard let email = emailField.text, let password = passwordField.text,
               !email.isEmpty, !password.isEmpty , password.count >= 6 else {
                 alertUserLoginError()

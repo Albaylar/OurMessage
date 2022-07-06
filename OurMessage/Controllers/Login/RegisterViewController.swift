@@ -14,6 +14,36 @@ class RegisterViewController: UIViewController {
         return scrollView
     }()
     
+    private let FirstNameField: UITextField = {
+        let Field = UITextField()
+        Field.autocapitalizationType = .none
+        Field.autocorrectionType = .no
+        Field.returnKeyType = .continue
+        Field.layer.cornerRadius = 12
+        Field.layer.borderWidth = 1
+        Field.layer.borderColor = UIColor.lightGray.cgColor
+        Field.placeholder = "Enter a First Name "
+        Field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 0))
+        Field.leftViewMode = .always
+        Field.backgroundColor = .white
+        return Field
+    }()
+    
+    private let LastNameField: UITextField = {
+        let Field = UITextField()
+        Field.autocapitalizationType = .none
+        Field.autocorrectionType = .no
+        Field.returnKeyType = .continue
+        Field.layer.cornerRadius = 12
+        Field.layer.borderWidth = 1
+        Field.layer.borderColor = UIColor.lightGray.cgColor
+        Field.placeholder = "Enter a Last Name "
+        Field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 0))
+        Field.leftViewMode = .always
+        Field.backgroundColor = .white
+        return Field
+    }()
+    
     private let emailField: UITextField = {
         let Field = UITextField()
         Field.autocapitalizationType = .none
@@ -22,12 +52,13 @@ class RegisterViewController: UIViewController {
         Field.layer.cornerRadius = 12
         Field.layer.borderWidth = 1
         Field.layer.borderColor = UIColor.lightGray.cgColor
-        Field.placeholder = "Enter a email"
+        Field.placeholder = "Enter a your Email "
         Field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 0))
         Field.leftViewMode = .always
         Field.backgroundColor = .white
         return Field
     }()
+
     private let passwordField: UITextField = {
         let Field = UITextField()
         Field.autocapitalizationType = .none
@@ -36,7 +67,7 @@ class RegisterViewController: UIViewController {
         Field.layer.cornerRadius = 12
         Field.layer.borderWidth = 1
         Field.layer.borderColor = UIColor.lightGray.cgColor
-        Field.placeholder = "Enter a password"
+        Field.placeholder = "password"
         Field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 0))
         Field.leftViewMode = .always
         Field.backgroundColor = .white
@@ -51,10 +82,10 @@ class RegisterViewController: UIViewController {
         return imageView
     }()
     
-    private let LoginButton : UIButton = {
+    private let RegisterButton : UIButton = {
         let button = UIButton()
-        button.setTitle("Log in", for: .normal)
-        button.backgroundColor = .lightGray
+        button.setTitle("Register", for: .normal)
+        button.backgroundColor = .systemBlue
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 20
         button.layer.masksToBounds = true
@@ -75,15 +106,17 @@ class RegisterViewController: UIViewController {
                                                             style: .done, target: self ,
                                                             action: #selector(didTapRegister))
         
-        LoginButton.addTarget(self, action:#selector(loginButtonTapped), for: .touchUpInside)
+        RegisterButton.addTarget(self, action:#selector(RegisterButtonTapped), for: .touchUpInside)
         emailField.delegate = self
         passwordField.delegate = self
         
         view.addSubview(scrollView)
         scrollView.addSubview(imageView)
-        scrollView.addSubview(emailField)
+        scrollView.addSubview(FirstNameField)
+        scrollView.addSubview(LastNameField)
         scrollView.addSubview(passwordField)
-        scrollView.addSubview(LoginButton)
+        scrollView.addSubview(RegisterButton)
+        scrollView.addSubview(emailField)
     }
     
     override func viewDidLayoutSubviews() {
@@ -94,21 +127,32 @@ class RegisterViewController: UIViewController {
                                  y: 20,
                                  width: size,
                                  height: size)
-        emailField.frame = CGRect(x: 30,
+        FirstNameField.frame = CGRect(x: 30,
                                   y: imageView.bottom+10,
+                                  width: scrollView.width-60,
+                                  height: 52)
+        LastNameField.frame = CGRect(x: 30,
+                                  y: FirstNameField.bottom+10,
+                                  width: scrollView.width-60,
+                                  height: 52)
+        emailField.frame = CGRect(x: 30,
+                                  y: LastNameField.bottom+10,
                                   width: scrollView.width-60,
                                   height: 52)
         passwordField.frame = CGRect(x: 30,
                                      y: emailField.bottom+10,
                                      width: scrollView.width-60,
                                      height: 52)
-        LoginButton.frame = CGRect(x: 30,
+        RegisterButton.frame = CGRect(x: 30,
                                    y: passwordField.bottom+20,
                                    width: scrollView.width-60,
                                    height: 45)
         
     }
-    @objc private func loginButtonTapped(){
+    @objc private func RegisterButtonTapped(){
+        emailField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+        
         guard let email = emailField.text, let password = passwordField.text,
               !email.isEmpty, !password.isEmpty , password.count >= 6 else {
             alertUserLoginError()
@@ -143,7 +187,7 @@ extension RegisterViewController: UITextFieldDelegate{
             passwordField.becomeFirstResponder()
         }
         else if textField == passwordField{
-            loginButtonTapped()
+            RegisterButtonTapped()
         }
         
         return true
